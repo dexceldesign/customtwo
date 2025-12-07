@@ -121,6 +121,31 @@
       font-weight: normal; font-style: normal;
     }
 
+    /* 🔹 강원교육새음 (버전1에서 가져옴) */
+    @font-face {
+      font-family: 'GangwonEdu Saeeum';
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+      src: url('https://cdn.jsdelivr.net/gh/fonts-archive/GangwonEduSaeeum/GangwonEduSaeeum.woff2') format('woff2'),
+           url('https://cdn.jsdelivr.net/gh/fonts-archive/GangwonEduSaeeum/GangwonEduSaeeum.woff') format('woff'),
+           url('https://cdn.jsdelivr.net/gh/fonts-archive/GangwonEduSaeeum/GangwonEduSaeeum.otf') format('opentype'),
+           url('https://cdn.jsdelivr.net/gh/fonts-archive/GangwonEduSaeeum/GangwonEduSaeeum.ttf') format('truetype');
+    }
+
+    /* 🔹 Bebas Neue Regular (버전1에서 가져옴) */
+    @font-face {
+      font-family: "BebasNeueRegular";
+      src: url("https://db.onlinewebfonts.com/t/f965a453da47f8f37e16e1b0ab908b4a.eot");
+      src: url("https://db.onlinewebfonts.com/t/f965a453da47f8f37e16e1b0ab908b4a.eot?#iefix") format("embedded-opentype"),
+           url("https://db.onlinewebfonts.com/t/f965a453da47f8f37e16e1b0ab908b4a.woff2") format("woff2"),
+           url("https://db.onlinewebfonts.com/t/f965a453da47f8f37e16e1b0ab908b4a.woff") format("woff"),
+           url("https://db.onlinewebfonts.com/t/f965a453da47f8f37e16e1b0ab908b4a.ttf") format("truetype"),
+           url("https://db.onlinewebfonts.com/t/f965a453da47f8f37e16e1b0ab908b4a.svg#BebasNeueRegular") format("svg");
+      font-weight: normal;
+      font-style: normal;
+    }
+
     /* =========================================
        2. 스타일 정의
        ========================================= */
@@ -222,18 +247,18 @@
     }
 
     /* =========================================
-       3. 드롭다운 내부 미리보기
+       3. 드롭다운 내부 미리보기 (버전1과 동일 맵핑)
        ========================================= */
     option[value="font1"]  { font-family: 'TmonMonsori', sans-serif; }
     option[value="font2"]  { font-family: 'BMDOHYEON',   sans-serif; }
     option[value="font3"]  { font-family: 'BMJUA',       sans-serif; }
     option[value="font4"]  { font-family: 'BMYEONSUNG',  sans-serif; }
-    option[value="font5"]  { font-family: 'GangwonEdu_OTFBoldA', sans-serif; }
+    option[value="font5"]  { font-family: 'NanumSquareNeo', sans-serif; font-weight: 800; }
     option[value="font6"]  { font-family: 'MaplestoryOTFLight',  sans-serif; }
-    option[value="font7"]  { font-family: 'MaruBuri-Regular',    serif; }
-    option[value="font8"]  { font-family: 'Cafe24Supermagic-Bold-v1.0', sans-serif; }
-    option[value="font9"]  { font-family: 'Yeonji', sans-serif; font-weight: bold; }
-    option[value="font10"] { font-family: 'NanumSquareNeo', sans-serif; font-weight: 800; }
+    option[value="font7"]  { font-family: 'GangwonEdu Saeeum',   sans-serif; }
+    option[value="font8"]  { font-family: 'Yeonji', sans-serif; }
+    option[value="font9"]  { font-family: 'NeoDunggeunmoPro-Regular', monospace; }
+    option[value="font10"] { font-family: 'BebasNeueRegular', sans-serif; }
     option[value="font11"] { font-family: 'BMEULJIRO',     sans-serif; }
     option[value="font13"] { font-family: 'NeoDunggeunmoPro-Regular', monospace; }
     option[value="font14"] { font-family: 'ChosunGs',      serif; font-weight: 600; }
@@ -283,7 +308,7 @@
       outline: none;
     }
 
-    /* 글씨체 버튼 전용 (1번 코드와 동일 구조) */
+    /* 글씨체 버튼 전용 (버전1에서 그대로 가져옴) */
     #font-buttons {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -292,31 +317,38 @@
       margin-top: 6px;
     }
 
+    /* 7, 8, 10번 버튼만 더 두껍게 */
+    #font-buttons .font-btn[data-font="font7"],
+    #font-buttons .font-btn[data-font="font8"],
+    #font-buttons .font-btn[data-font="font10"] {
+      font-weight: 700;
+    }
+
     #font-buttons .font-btn {
-      padding: 2px 0;      /* 위/아래 여백 → 높이 조절 */
+      padding: 6px 0;      /* 위/아래 여백 → 높이 조절 */
       height: 40px;        /* 버튼 전체 높이 */
       line-height: 1;
       width: 100%;
       min-width: 0;
-font-size: 14px;
+      font-size: 15px;     /* 기본 버튼 글자 크기 */
     }
 
+    /* 버튼별 미리보기 글꼴 크기 (버전1과 동일) */
+    #font-buttons .font-btn[data-font="font7"]  { font-size: 25px; }
+    #font-buttons .font-btn[data-font="font8"]  { font-size: 22px; }
+    #font-buttons .font-btn[data-font="font10"] { font-size: 18px; }
 
-
+    /* 버튼별 실제 폰트 매핑 (버전1과 동일) */
     #font-buttons .font-btn[data-font="font1"]  { font-family: 'TmonMonsori', sans-serif; }
     #font-buttons .font-btn[data-font="font2"]  { font-family: 'BMDOHYEON', sans-serif; }
     #font-buttons .font-btn[data-font="font3"]  { font-family: 'BMJUA', sans-serif; }
-    #font-buttons .font-btn[data-font="font4"]  { font-family: 'BMYEONSUNG', sans-serif; }
-    #font-buttons .font-btn[data-font="font5"]  { font-family: 'GangwonEdu_OTFBoldA', sans-serif; }
+    #font-buttons .font-btn[data-font="font5"]  { font-family: 'NanumSquareNeo', sans-serif; font-weight: 800; }
     #font-buttons .font-btn[data-font="font6"]  { font-family: 'MaplestoryOTFLight', sans-serif; }
-    #font-buttons .font-btn[data-font="font7"]  { font-family: 'MaruBuri-Regular', serif; font-weight: bold; }
-    #font-buttons .font-btn[data-font="font8"]  { font-family: 'Cafe24Supermagic-Bold-v1.0', sans-serif; font-weight: 700; }
-    #font-buttons .font-btn[data-font="font9"]  { font-family: 'Yeonji', sans-serif; font-weight: bold; }
-    #font-buttons .font-btn[data-font="font10"] { font-family: 'NanumSquareNeo', sans-serif; font-weight: 800; }
-    #font-buttons .font-btn[data-font="font11"] { font-family: 'BMEULJIRO', sans-serif; }
-    #font-buttons .font-btn[data-font="font13"] { font-family: 'NeoDunggeunmoPro-Regular', monospace; }
-    #font-buttons .font-btn[data-font="font14"] { font-family: 'ChosunGs', serif; font-weight: 600; }
-    #font-buttons .font-btn[data-font="font15"] { font-family: 'Cafe24SsurroundAir', sans-serif; font-weight: 700; }
+    #font-buttons .font-btn[data-font="font7"]  { font-family: 'GangwonEdu Saeeum', sans-serif; }
+    #font-buttons .font-btn[data-font="font8"]  { font-family: 'Yeonji', sans-serif; }
+    #font-buttons .font-btn[data-font="font9"]  { font-family: 'NeoDunggeunmoPro-Regular', monospace; }
+    #font-buttons .font-btn[data-font="font10"] { font-family: 'BebasNeueRegular', sans-serif; }
+
   </style>
 </head>
 <body>
@@ -352,24 +384,19 @@ font-size: 14px;
     </div>
   </label>
 
-  <!-- 글씨체 : 셀렉트 숨기고 버튼으로 변경 (1번 스타일) -->
+  <!-- 글씨체 : 버전1의 옵션/버튼 텍스트/갯수 그대로 이식 -->
   <label>
     글씨체
     <select id="font-select" class="hidden-select">
-      <option value="font1">1번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font2">2번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font3">3번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font4">4번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font5">5번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font6">6번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font7">7번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font8">8번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font9">9번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font10">10번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font11">11번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font13">13번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font14">14번 글씨체 - 가나다라 ABCY abcy 1234</option>
-      <option value="font15">15번 글씨체 - 가나다라 ABCY abcy 1234</option>
+      <option value="font1">글씨체1 (가Aa1)</option>
+      <option value="font2">글씨체2 (가Aa1)</option>
+      <option value="font3">글씨체3 (가Aa1)</option>
+      <option value="font5">글씨체5 (가Aa1)</option>
+      <option value="font6">글씨체6 (가Aa1)</option>
+      <option value="font7">글씨체7 (가Aa1)</option>
+      <option value="font8">글씨체8 (가Aa1)</option>
+      <option value="font9">글씨체9 (가Aa1)</option>
+      <option value="font10">글씨체10 (가Aa1)</option>
     </select>
 
     <div class="btn-group" id="font-buttons">
@@ -381,9 +408,6 @@ font-size: 14px;
       </button>
       <button type="button" class="toggle-btn font-btn" data-font="font3">
         글씨체3 가Aa1
-      </button>
-      <button type="button" class="toggle-btn font-btn" data-font="font4">
-        글씨체4 가Aa1
       </button>
       <button type="button" class="toggle-btn font-btn" data-font="font5">
         글씨체5 가Aa1
@@ -401,19 +425,7 @@ font-size: 14px;
         글씨체9 가Aa1
       </button>
       <button type="button" class="toggle-btn font-btn" data-font="font10">
-        글씨체10 가Aa1
-      </button>
-      <button type="button" class="toggle-btn font-btn" data-font="font11">
-        글씨체11 가Aa1
-      </button>
-      <button type="button" class="toggle-btn font-btn" data-font="font13">
-        글씨체13 가Aa1
-      </button>
-      <button type="button" class="toggle-btn font-btn" data-font="font14">
-        글씨체14 가Aa1
-      </button>
-      <button type="button" class="toggle-btn font-btn" data-font="font15">
-        글씨체15 가Aa1
+        FONT10 영/숫자전용
       </button>
     </div>
   </label>
@@ -508,27 +520,42 @@ font-size: 14px;
     const LINE_HEIGHT_RATIO = 1.1;
     const CAR_REAL_WIDTH_CM = 190;
 
+    // 👉 버전1과 동일한 글씨체 매핑만 이식 (나머지 로직 그대로)
     function getSelectedFontConfig() {
       const val = fontSelect.value;
       let family = "'NanumSquareNeo', sans-serif";
       let weight = "normal";
 
-      if (val === "font1")  family = "'TmonMonsori', sans-serif";
-      if (val === "font2")  family = "'BMDOHYEON', sans-serif";
-      if (val === "font3")  family = "'BMJUA', sans-serif";
-      if (val === "font4")  family = "'BMYEONSUNG', sans-serif";
-      if (val === "font5")  family = "'GangwonEdu_OTFBoldA', sans-serif";
-      if (val === "font6")  family = "'MaplestoryOTFLight', sans-serif";
-      if (val === "font7")  { family = "'MaruBuri-Regular', serif"; weight = "bold"; }
-      if (val === "font8")  { family = "'Cafe24Supermagic-Bold-v1.0', sans-serif"; weight = "700"; }
-      if (val === "font9")  { family = "'Yeonji', sans-serif"; weight = "bold"; }
-      if (val === "font10") { family = "'NanumSquareNeo', sans-serif"; weight = "800"; }
-      if (val === "font11") family = "'BMEULJIRO', sans-serif";
-      if (val === "font13") family = "'NeoDunggeunmoPro-Regular', monospace";
-      if (val === "font14") { family = "'ChosunGs', serif"; weight = "600"; }
-      if (val === "font15") { family = "'Cafe24SsurroundAir', sans-serif"; weight = "700"; }
+      if (val === "font1")  { family = "'TmonMonsori', sans-serif"; }
+      if (val === "font2")  { family = "'BMDOHYEON', sans-serif"; }
+      if (val === "font3")  { family = "'BMJUA', sans-serif"; }
+      if (val === "font5")  { family = "'NanumSquareNeo', sans-serif"; weight = "800"; }
+      if (val === "font6")  { family = "'MaplestoryOTFLight', sans-serif"; }
+      if (val === "font7")  { family = "'GangwonEdu Saeeum', sans-serif"; weight = "500"; }
+      if (val === "font8")  { family = "'Yeonji', sans-serif"; weight = "600"; }
+      if (val === "font9")  { family = "'NeoDunggeunmoPro-Regular', monospace"; weight = "400"; }
+      if (val === "font10") { family = "'BebasNeueRegular', sans-serif"; weight = "600"; }
 
       return { family, weight };
+    }
+
+    // ✅ 폰트별 줄간격 비율 함수 (여기 숫자만 바꾸면 됨)
+    function getLineHeightRatioByFont() {
+      const v = fontSelect.value;
+
+      // 필요하면 아래 숫자들 네가 직접 조절하면 됨
+      if (v === 'font1')  return 1.20;  // 티몬 몬소리
+      if (v === 'font2')  return 1.20;  // 도현
+      if (v === 'font3')  return 1.05;  // 주아 (조금 더 붙게)
+      if (v === 'font5')  return 1.15;  // 나눔스퀘어 네오 Bold
+      if (v === 'font6')  return 1.10;  // 메이플
+      if (v === 'font7')  return 0.8;  // 강원교육 새음 (손글씨라 타이트)
+      if (v === 'font8')  return 0.9;  // 연지체
+      if (v === 'font9')  return 1.15;  // 네오둥근모 (모노라 살짝 더 띄움)
+      if (v === 'font10') return 0.9;  // Bebas (세로 긴 영문, 타이트)
+
+      // 혹시 빠진 값 있으면 기본값 사용
+      return LINE_HEIGHT_RATIO;
     }
 
     function recompute() {
@@ -540,6 +567,7 @@ font-size: 14px;
       const processed = raw.replace(/\//g, "\n");
       
       const { family, weight } = getSelectedFontConfig();
+      const lineRatio = getLineHeightRatioByFont();   // 🔹 폰트별 줄간격 비율 가져오기
 
       fontSelect.style.fontFamily = family;
       fontSelect.style.fontWeight = weight;
@@ -591,11 +619,11 @@ font-size: 14px;
 
       const finalSize = findFontSize(processed, family, weight, targetPx);
       previewText.style.fontSize = finalSize + "px";
-      previewText.style.lineHeight = (finalSize * LINE_HEIGHT_RATIO) + "px";
+      previewText.style.lineHeight = (finalSize * lineRatio) + "px";  // 🔹 여기 수정
       previewText.textContent = processed || "미리보기";
 
       measureSpan.style.fontSize = finalSize + "px";
-      measureSpan.style.lineHeight = (finalSize * LINE_HEIGHT_RATIO) + "px";
+      measureSpan.style.lineHeight = (finalSize * lineRatio) + "px";  // 🔹 여기 수정
       measureSpan.textContent = processed;
       
       const rect = measureSpan.getBoundingClientRect();
@@ -664,5 +692,6 @@ font-size: 14px;
 
     window.onload = recompute;
   </script>
+
 </body>
 </html>
